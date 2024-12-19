@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{% block title %}{{'Главная страница'}}{% endblock %}
+
+{% block content %}
+<body1>
+    <div class="maincontainer">
+        <div class="leftbar"></div>
+        <div class="container">
+
+            {% for product in goods %}
+                <div class="card">
+                    {%if product.image%}
+                    <img src="{{product.image.url }}" class="card-img-top" alt="..."> 
+                    {%endif%}
+                    <div class="card-body">
+                        <a href="goods/product.html">
+                            <p class="card-title">{{product.name}}</p> 
+                        </a>
+                        <p class="card-text">{{product.description}}</p>
+                        <p class="product_id">id: 02265</p>
+                        <div class="d-flex justify-content-between"> 
+                            <p><s>100</s> $</p>
+                            <p><strong>90.00 $</strong></p>
+                            <span class="badge bg-warning text-dark"> <strong> Cкидка 10.00 % </strong> </span> 
+                        </div>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+</body1>
+{% endblock %}
