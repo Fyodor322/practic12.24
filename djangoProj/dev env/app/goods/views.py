@@ -10,9 +10,17 @@ def catalog(request):
         "title" : "Home - Каталог",
         "goods" : goods,
     }
-
     return render(request, 'goods/catalog.html', context)
 
 def product(request):
     return render(request, 'goods/product.html')
 # Create your views here.
+
+def product(request, product_slug):
+    product = Products.objects.get(slug=product_slug)
+
+    context = {
+        "product": product
+    }
+
+    return render(request, "goods/product.html", context=context)

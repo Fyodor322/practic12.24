@@ -14,15 +14,19 @@
                     <img src="{{product.image.url }}" class="card-img-top" alt="..."> 
                     {%endif%}
                     <div class="card-body">
-                        <a href="goods/product.html">
+                        <a href="{% url "catalog:product" product.slug%}">
                             <p class="card-title">{{product.name}}</p> 
                         </a>
                         <p class="card-text">{{product.description}}</p>
                         <p class="product_id">id: 02265</p>
                         <div class="d-flex justify-content-between"> 
-                            <p><s>100</s> $</p>
-                            <p><strong>90.00 $</strong></p>
-                            <span class="badge bg-warning text-dark"> <strong> Cкидка 10.00 % </strong> </span> 
+                            {%if product.discount%}
+                                <p><s>{{product.price}}</s> $</p>
+                                <p><strong>{{product.sell_price}}</strong></p>
+                                <span class="badge bg-warning text-dark"> <strong> Cкидка {{product.discount}} % </strong> </span> 
+                            {%else%}
+                                <p><strong>{{product.price}}</strong></p>
+                            {%endif%}
                         </div>
                     </div>
                 </div>
