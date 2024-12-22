@@ -1,0 +1,62 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <title>Главная</title>
+</head>
+
+<body>
+    <header>
+        <section class="header">
+            <img src="{% static 'main/img/Logo.png' %}" class="logo_header">
+            <div class="header_input">
+                <input type="text">
+                <div class="lupa_class">
+                    <img src="{% static 'main/img/Lupa.png' %}"
+                        class="lupa_poisk">
+                </div>
+            </div>
+            <div class="reg-in-kab">
+                <a href="{% static 'main/img/login.png' %}"><img src="{% static 'main/img/LK.png' %}" alt=""></a>
+                <a href="{% static 'main/img/login.png' %}"><img src="{% static 'main/img/login.png' %}" alt=""></a>
+                <a href="{% static 'main/img/signin.png' %}"><img src="{% static 'main/img/signin.png' %}" alt=""></a>
+            </div>
+            <div class="header_input_600px">
+                <input type="text">
+                <div class="lupa_class">
+                    <img src="{% static 'main/img/Lupa.png' %}" class="lupa_poisk">
+                </div>
+            </div>
+        </section>
+    </header>
+    <section class="navUnderHeader">
+        <div>
+            <button><a href="{% url 'index' %}">Главная</a></button>
+            <button><a href="#">О нас</a></button>
+            <button><a href="{% url "catalog:catalog" %}">Каталог</a></button>
+        </div>
+    </section>
+    <main>
+        <section class="banner">
+            <div class="banner1">
+                <h2>У нас самые лучшие автомобили с пробегом!</h2>
+            </div>
+            <div class="banner2">
+                <h3>На рынке с 2011 года</h3>
+            </div>
+            <div class="banner2">
+                <h3>Подбирали камри Джейсону Стетхэму</h3>
+            </div>
+        </section>
+    </main>
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>

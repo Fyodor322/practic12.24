@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{% block title %}{{'Главная страница'}}{% endblock %}
+
+{% block content %}
+<body1>
+    <main class="main_tovar">
+        <section class="photoKarusel">
+            <div class="photoKaruselDiv">
+                <img src="{{product.image.url}}">
+                <img src="{{product.image.url}}">
+                <img src="{{product.image.url}}">
+            </div>
+        </section>
+        <section class="mainPhoto">
+            <img src="{{product.image.url}}" alt="">
+        </section>
+        <section class="description">
+            <h2>{{product.name}}</h2>
+            {% comment %} <p>Машина вообще чёткая, сам на такой езжу, жене, брату, свату подарил, нариканий никаких нет. Менял только расходники: масло, колодки, двигатель, коробку, есть болячки по кузову, пару раз купалась в озере, но это только на пользу пошло. В ДТП почти не учавствовала, не считая той красной фуры, но пацаны быстро всё в гараже сделали за пачку чипсов. Бери, не пожалеешь!</p> {% endcomment %}
+            <p>{{product.description}}</p>
+            <div class="ocenka">
+            {% comment %} <span class="ocenkaNum">{{product.ocenka}}</span> {% endcomment %}
+                <div class="rating-result">
+                <span class="active"></span>	
+                <span class="active"></span>    
+                <span class="active"></span>  
+                <span class="active"></span>    
+                <span class="active"></span>
+                </div>
+            </div>
+            <h4>Коротко о товаре</h4>
+            <div class="descriptionKod descriptionSvoistva">
+                <span class="property">Код товара</span>
+                <span class="value">1111101</span>
+            </div>
+            <div class="descriptionKod descriptionSvoistva">
+                <span class="property">Материал</span>
+                <span class="value">Алюминий</span>
+            </div>
+            <div class="descriptionKod descriptionSvoistva">
+                <span class="property">Наличие</span>
+                <span class="value">есть</span>
+            </div>
+            <div class="descriptionKod descriptionSvoistva">
+                <span class="property">Состояне товара</span>
+                <span class="value">уценка</span>
+            </div>
+            <div class="descriptionKod descriptionSvoistva">
+                <span class="property">Цвет</span>
+                <span class="value">Серый</span>
+            </div>
+        </section>
+        <section class="price">
+            <div class="priceCart">
+                <h3>{{product.price}}</h3>
+                <button class="priceCartBut korz"><p>Добавить в корзину</p></button>
+                <button class="priceCartBut buy"><p>Купить сейчас</p></button>
+            </div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+</body1>
+{% endblock %}

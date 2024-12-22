@@ -1,0 +1,76 @@
+{% extends 'main/base.html' %}
+{% load static%}
+{% block title %}{{'Главная страница'}}{% endblock %}
+
+{% block content %}
+<body1>
+
+    <div class="params">
+        <h2>Авто под любые задачи</h2>
+    </div>
+    <button class="filtrsBurger">
+        <h5>фильтры</h5>
+        <img src="img/filtr.png" alt="">
+    </button>
+    
+    <main class="main_main">
+   
+        <section class="filtrSection">
+
+            <div class="filtr-box">
+            <h5>фильтры</h5>
+            <img src="img/filtr.png" alt="">
+            </div>
+            <div class="filtrs">
+                <div class="CategoryFiltr">
+                <h3>Категория товара</h3>
+                <label class="switch">
+                    <input type="checkbox" class="switch__input">
+                    <span class="switch__slider"></span>
+                </label>
+            </div>
+                <h3 id="price">Цена, &#8381;</h3>
+                <div class="windMoney">
+                    <input type="number" class="priceStart" placeholder="от 1 000 000">
+                    <input type="number" class="priceEnd" placeholder="до 15 000 000">
+                </div>
+                <div class="Availability">
+                    <h3>Есть в наличии</h3>
+                    <label class="switch">
+                        <input type="checkbox" class="switch__input">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+                <div class="state">
+                    <h3>Состояние товара</h3>
+                    <input type="radio" value="New" name="sost">
+                    <label for="New" class="radio-style">Новый</label>
+                    <input type="radio" value="Uzenk" name="sost">
+                    <label for="Uzenk" class="radio-style">Уценка</label>
+                </div>
+                <button>Применить</button>
+            </div>    
+        </section>
+        
+
+        <section class="product_carts">
+            {%for product in goods %}
+                <a class="product_cart" href="{% url "catalog:product" product.slug%}">
+                    {%if product.image%}
+                    <img src="{{product.image.url}}" alt="">
+                    {%endif%}
+                    <h3>{{product.price}}</h3>
+                    <h4>{{product.name}}</h4>
+                    <button>
+                        <h4>
+                            В корзину 
+                        </h4>
+                    </button>
+                </a>
+              {%endfor%}  
+        <section>
+            
+    </main>
+
+</body1>
+{% endblock %}
